@@ -19,9 +19,20 @@
 			integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
 			crossorigin="anonymous">
 		</script>
+		
+		<script type="text/javascript">
+			var isPlaying = false;
+			
+			function silentNight() {
+			  if (!isPlaying) {
+				isPlaying = true;
+				MIDIjs.play('silent_night_easy.mid');
+			  }			
+			}
+		</script>  				
 	</head>
 	
-	<body onload="MIDIjs.play('silent_night_easy.mid');">
+	<body>
 		<div id="vizactually" class="carousel slide" data-ride="carousel">
 		  <div class="carousel-inner">
 			<div class="carousel-item active">
@@ -71,20 +82,10 @@
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 			<span class="sr-only">Previous</span>
 		  </a>
-		  <a class="carousel-control-next" href="#vizactually" role="button" data-slide="next">
+		  <a class="carousel-control-next" href="#vizactually" role="button" data-slide="next" onClick="silentNight();">
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="sr-only">Next</span>
 		  </a>
-		</div>	
-		
-		<script type="text/javascript">
-		$(document).ready(function () {
-			$('.carousel').carousel({
-				interval: 3000
-			});
-
-			$('.carousel').carousel('cycle');
-		});
-		</script>  		
+		</div>			
 	</body>
 </html>
